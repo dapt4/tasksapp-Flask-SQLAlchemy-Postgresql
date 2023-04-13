@@ -12,5 +12,7 @@ class Task(Base):
     title: Mapped[str] = mapped_column(String(30))
     description: Mapped[str] = mapped_column(String(200))
 
+    def to_dict(self):
+        return {"id": self.id, "title": self.title, "description": self.description }
     def __repr__(self) -> str:
         return f'Task(id={self.id}, title={self.title}, description={self.description})'
